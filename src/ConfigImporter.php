@@ -175,7 +175,8 @@ class ConfigImporter {
    *   config is determined to not be a config entity.
    */
   protected function getConfigEntityMeta($id) {
-    $parts = explode('.', $id);
+    // Split to provider, entity type/config prefix, and entity ID.
+    $parts = explode('.', $id, 3);
     if (count($parts) != 3) {
       return FALSE;
     }
