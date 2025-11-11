@@ -15,7 +15,7 @@ Then add the update hook and the population code:
 
 ```
 function my_module_update_8003() {
-  $path = drupal_get_path('module', 'my_module') . '/config/update/8003';
+  $path = \Drupal::moduleHandler()->getModule('my_module')->getPath() . '/config/update/11000';
   $i = Kerasai\DrupalConfigImporter\ConfigImporter::create();
   $i->import('taxonomy.vocabulary.article_types', $path);
   _my_module_populate_article_types();
